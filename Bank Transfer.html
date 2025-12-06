@@ -23,7 +23,20 @@
         font-size: 34px;
         font-weight: bold;
         position: relative;
-    }   
+    }
+
+    .container {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 15px 30px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+        background-color: rgba(11, 48, 55, 0.8);
+    }
 </style>
 </head>
 <body>
@@ -31,6 +44,15 @@
 <!-- HEADER -->
 <div class="header">
     Bank Transfer
+</div>
+
+<div class="container">
+    <p> Bank: </p>
+    <select name="bank" id="Bank">
+    <option value="bdo">BDO</option>
+    <option value="bpi">BPI</option>
+    <option value="gcash">Gcash</option>
+    </select>
 </div>
 
 <script>
