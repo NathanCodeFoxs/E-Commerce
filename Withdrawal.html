@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Withdrawal</title>
+
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        overflow: hidden;
+        background: linear-gradient(90deg, #134E5E 39%, #0B3037 95%);
+        color: white;
+    }
+
+    .top-header {
+        height: 80px;
+        background: #0B3037;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .icon-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        background: #0c3d4a;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .left { left: 30px; }
+    .right { right: 30px; }
+
+    .top-header h1 {
+        font-size: 50px;
+        font-weight: 600;
+    }
+
+    .card {
+        width: 450px;
+        margin: 90px auto 0;
+        padding: 40px 45px 120px;
+        background: rgba(0, 0, 0, 0.32);
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    }
+
+    .balance-box {
+        background: #AC8F45;
+        padding: 18px 12px;
+        border-radius: 18px;
+        margin-bottom: 40px;
+        color: #073c45;
+    }
+
+    .balance-label {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .balance-value {
+        font-size: 38px;
+        font-weight: 600;
+        color: white;
+        margin-top: 5px;
+    }
+
+    .input-wrap {
+        width: 80%;
+        margin: 0 auto 30px;
+        text-align: left;
+    }
+
+    .label {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px;
+        border-radius: 6px;
+        background: transparent;
+        border: 2px solid #AC8F45;
+        color: white;
+        font-size: 16px;
+        outline: none;
+    }
+
+    button {
+        width: 80%;
+        padding: 13px;
+        background: #AC8F45;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        color: #073c45;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="top-header">
+    <div class="icon-btn left"><img src="Images/Safe Out.png" alt=""></div>
+    <h1>Withdrawal</h1>
+    <div class="icon-btn right"><img src="Images/Notification.png" alt=""></div>
+</div>
+
+<div class="card">
+
+    <div class="balance-box">
+        <div class="balance-label">AVAILABLE BALANCE</div>
+        <div class="balance-value" id="balance">₱ 0000.00</div>
+    </div>
+
+    <div class="input-wrap">
+        <div class="label">Withdrawal Amount</div>
+        <input type="number" placeholder="Enter amount">
+    </div>
+
+    <button>Confirm</button>
+</div>
+
+</body>
+</html>
