@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BBC Dashboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap">
+<link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<!-- ====== SIDEBAR + BG ====== -->
+<div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
+    <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
+        <a onclick="goTo('dashboard.html')"> Dashboard</a>
+        <a onclick="goTo('transfer.html')"><img src="transfer.png" width="20"> Transfer</a>
+        <a onclick="goTo('bills.html')"><img src="bills.png" width="20"> Bills</a>
+        <a onclick="goTo('loan.html')"><img src="loan.png" width="20"> Loan</a>
+        <a onclick="openDeposit()"><img src="deposit.png" width="20"> Deposit</a>
+        <a onclick="goTo('withdraw.html')"><img src="withdraw.png" width="20"> Withdrawal</a>
+        <a onclick="goTo('finance.html')"><img src="finance.png" width="20"> Finance</a>
+        <a onclick="goTo('settings.html')">⚙ Settings</a>
+        <a onclick="goTo('logout.html')">🚪 Logout</a>
+    </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<div class="header">
+    <div class="menu-icon" onclick="openSidebar()"><img src="side-bar.png" alt=""></div>
+        <img src="logo.png" alt="company logo" class="header-logo">
+        <p class="acro_compa">BBC</p>
+        <span>
+            <img src="notification.png" alt="notification" width="30">
+        </span>
+    </div>
+
+<!-- ===== BALANCE ===== -->
+<div class="balance-container">
+    <div class="balance-card">
+        <div class="balance-label">
+            AVAILABLE BALANCE <span class="eye-icon" id="eyeIcon" onclick="toggleBalance()"><img src="eye-solid.png" alt="" width="20"></span>
+        </div>
+        <div class="balance-amount" id="balance">₱ 1532.43</div>
+    </div>
+</div>
+
+<!-- ===== ICON ROW ===== -->
+<div class="icon-row">
+    <a class="icon-btn" onclick="goTo('transfer.html')">
+        <img src="transfer.png"><p>Transfer</p>
+    </a>
+    <a class="icon-btn" onclick="goTo('bills.html')">
+        <img src="bills.png"><p>Bills</p>
+    </a>
+    <a class="icon-btn" onclick="goTo('loan.html')">
+        <img src="loan.png"><p>Loan</p>
+    </a>
+    <a class="icon-btn" onclick="openDeposit()">
+        <img src="deposit.png"><p>Deposit</p>
+    </a>
+    <a class="icon-btn" onclick="goTo('withdraw.html')">
+        <img src="withdraw.png"><p>Withdrawal</p>
+    </a>
+    <a class="icon-btn" onclick="goTo('finance.html')">
+        <img src="finance.png"><p>Finance</p>
+    </a>
+</div>
+
+<!-- ===== DEPOSIT POPUP ===== -->
+<div class="popup-bg" id="depositPopup">
+    <div class="popup-box">
+        <h3>Enter Deposit Amount</h3>
+        <input type="number" id="depositAmount" placeholder="₱ 0.00">
+        <br>
+        <button onclick="addDeposit()">Submit</button>
+        <button onclick="closePopup()" style="background:#555;">Cancel</button>
+    </div>
+</div>
+
+<script src="dashboard.js">
+</script>
+
+</body>
+</html>

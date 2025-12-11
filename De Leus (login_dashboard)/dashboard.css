@@ -1,0 +1,205 @@
+/* ===== GENERAL PAGE ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", serif;
+    background: linear-gradient(to right, #134E5E,#0B3037);
+    overflow: hidden;
+}
+
+/* ===== NAVBAR ===== */
+.header{
+    width: 100%;
+    height: 100px;
+    background: #0b2931;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo{
+    height: 80px;
+    margin: 10px 10px;
+}
+
+.acro_compa{
+    display: inline-block;
+    background: linear-gradient(to right, #AC8F45, #6E5A27);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+span{
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.menu-icon {
+    font-size: 32px;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+}
+
+.bbc-logo {
+    display: flex;
+    align-items: center;
+    color: #ac8f45;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.bell-icon {
+    font-size: 32px;
+    color: #ac8f45;
+    cursor: pointer;
+}
+
+/* ======== SIDEBAR (Hidden initially) ======== */
+.sidebar-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar {
+    width: 280px;
+    height: 100%;
+    background: #0b1f29;
+    position: absolute;
+    left: -280px;
+    top: 0;
+    padding-top: 40px;
+    transition: 0.3s ease;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.4);
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 30px;
+    color: #ac8f45;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar img{
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.sidebar a:hover {
+    background: #10303a;
+}
+
+/* ===== BALANCE CARD ===== */
+.balance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0b2931;
+    height: 310px;
+    margin-top: 80px;
+}
+
+.balance-card {
+    background: #ac8f45;
+    width: 700px;
+    height: 160px;
+    border-radius: 18px;
+    text-align: center;
+    padding-top: 18px;
+    box-sizing: border-box;
+}
+
+.balance-label {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.eye-icon {
+    margin-left: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.balance-amount {
+    color: white;
+    font-size: 64px;
+    margin-top: 5px;
+    margin-right: 25px;
+}
+
+/* ===== ICON BUTTONS ===== */
+.icon-row {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 50px;
+}
+
+.icon-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.icon-btn img {
+    width: 70px;
+    height: 70px;
+    filter: invert(100%);
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ===== POPUP ===== */
+.popup-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-box {
+    background: #ffffff;
+    width: 350px;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    font-family: Arial;
+}
+
+.popup-box input {
+    width: 80%;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.popup-box button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #ac8f45;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
