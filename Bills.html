@@ -219,6 +219,31 @@
       gap: 24px;
     }
   }
+
+  .bill-card {
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  .bill-card:hover {
+    transform: translateY(-8px) scale(1.05);
+  }
+
+  .bill-card-top {
+    transition: 0.3s ease;
+  }
+
+  .bill-card:hover .bill-card-top {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+    background: #033543; /* slightly brighter like dashboard hover */
+  }
+
+  .bill-card:hover .bill-amount {
+    background: #ffe8a8;
+    color: #3a2a10;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.5);
+  }
+
 </style>
 </head>
 <body>
