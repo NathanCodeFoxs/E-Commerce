@@ -71,3 +71,27 @@ function addDeposit() {
 
     closePopup();
 }
+
+    // DYNAMIC DATA FOR TRANSACTION HISTORY
+    const historyData = [
+        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
+        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
+        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
+        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
+        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
+        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
+    ];
+
+    const body = document.getElementById("history-body");
+
+    historyData.forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${row.bank}</td>
+            <td>${row.number}</td>
+            <td>${row.name}</td>
+            <td>${row.amount}</td>
+            <td>${row.date}</td>
+        `;
+        body.appendChild(tr);
+    });

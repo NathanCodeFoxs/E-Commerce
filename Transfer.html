@@ -12,19 +12,26 @@
         background: linear-gradient(90deg, #134E5E 39%, #0B3037 95%);
         color: #FFFFFF;
     }
-
-    .header {
-        background-color: rgba(11, 48, 55, 0.8);
-        padding: 20px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 34px;
-        font-weight: bold;
+    .header{
+    width: 100%;
+    height: 100px;
+    background: #0b2931;
+    display: flex;
+    align-items: center;
+}
+    .nav-head{
+    width: 100%;
+    height: 80px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     }
 
     .header-title {
+        font-size: 40px;
+        font-family: Arial, sans-serif;
+        font-weight: 600;
         color: #FFFFFF;
     }
 
@@ -150,22 +157,76 @@
         margin-bottom: 10px;
     }
 
+    /* ========[ SIDEBAR ]======== */
+.sidebar-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar {
+    width: 280px;
+    height: 100%;
+    background: #0b1f29;
+    position: absolute;
+    left: -280px;
+    top: 0;
+    padding-top: 40px;
+    transition: 0.3s ease;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.4);
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 30px;
+    color: #ac8f45;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar img{
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.sidebar a:hover {
+    background: #10303a;
+}
+
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <div class="header">
+        <div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
+    <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
+        <a onclick="goTo('Dashboard.html')" ><img src="Images/home.png" alt="" width="20"> Dashboard</a>
+        <a onclick="goTo('Transfer.html')"><img src="Images/Transfer.png" width="20"> Transfer</a>
+        <a onclick="goTo('bills.html')"><img src="Images/Bill.png" width="20"> Bills</a>
+        <a onclick="goTo('loan.html')"><img src="Images/Loan.png" width="20"> Loan</a>
+        <a onclick="openDeposit()"><img src="Images/Safe_In.png" width="20"> Deposit</a>
+        <a onclick="goTo('withdraw.html')"><img src="Images/Safe_Out.png" width="20"> Withdrawal</a>
+        <a onclick="goTo('finance.html')"><img src="Images/Finance.png" width="20"> Finance</a>
+        <a onclick="goTo('settings.html')"><img src="Images/Setting.png" alt="" width="20"> Settings</a>
+        <a onclick="goTo('logout.html')"><img src="Images/Logout.png" alt="" width="20"> Logout</a>
+    </div>
+</div>
 
-    <a href="#" class="header-img-btn left-btn">
-        <img src="Images/Transfer.png" alt="Left Button">
-    </a>
-
-    <span class="header-title">Transfer</span>
-
-    <a href="#" class="header-img-btn right-btn">
-        <img src="Images/Notification.png" alt="Right Button">
-    </a>
+<!-- =====[ NAVBAR ]===== -->
+<div class="nav-head">
+    <div class="menu-icon" onclick="openSidebar()"><img src="Images/Sidebar.png" alt="" width="40"></div>
+        <span class="header-title">Transfer</span>
+        <span>
+            <img src="Images/Notification.png" alt="notification" width="30">
+        </span>
+    </div>
 
 </div>
 
@@ -204,30 +265,7 @@
     </a>
 </div>
 
-<script>
-    // DYNAMIC DATA FOR TRANSACTION HISTORY
-    const historyData = [
-        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
-        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
-        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
-        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
-        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
-        { bank: "BBC", number: "0921241342384", name: "Joe", amount: "1,300.00", date: "11/28/2025" },
-    ];
-
-    const body = document.getElementById("history-body");
-
-    historyData.forEach(row => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${row.bank}</td>
-            <td>${row.number}</td>
-            <td>${row.name}</td>
-            <td>${row.amount}</td>
-            <td>${row.date}</td>
-        `;
-        body.appendChild(tr);
-    });
+<script src="Dashboard.js">
 </script>
 
 </body>
