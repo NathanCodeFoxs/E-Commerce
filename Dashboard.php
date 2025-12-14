@@ -246,7 +246,7 @@ a #active {
 <div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
     <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
         <a id="active" ><img src="Images/home.png" alt="" width="20"> Dashboard</a>
-        <a onclick="goTo('Transfer.html')"><img src="Images/Transfer.png" width="20"> Transfer</a>
+        <a onclick="goTo('Transfer.php')"><img src="Images/Transfer.png" width="20"> Transfer</a>
         <a onclick="goTo('Bills.html')"><img src="Images/Bill.png" width="20"> Bills</a>
         <a onclick="goTo('Loan.html')"><img src="Images/Loan.png" width="20"> Loan</a>
         <a onclick="openDeposit()"><img src="Images/Safe_In.png" width="20"> Deposit</a>

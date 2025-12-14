@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Block access if not logged in
+if (!isset($_SESSION['user_account'])) {
+    header("Location: Login.php");
+    exit();
+}
+
+// Prevent browser cache (back button)
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,7 +125,7 @@
 <!-- HEADER WITH BUTTONS -->
 <div class="header">
 
-    <a href="Transfer.html" class="header-img-btn left-btn">
+    <a href="Transfer.php" class="header-img-btn left-btn">
         <img src="Images/Bank_Transfer.png" alt="Left Button">
     </a>
 

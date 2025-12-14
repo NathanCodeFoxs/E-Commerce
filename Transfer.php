@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+// Block access if not logged in
+if (!isset($_SESSION['user_account'])) {
+    header("Location: Login.php");
+    exit();
+}
+
+// Prevent back-button cache
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -325,8 +340,8 @@
 <div class="header">
         <div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
     <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
-        <a onclick="goTo('Dashboard.html')" ><img src="Images/home.png" alt="" width="20"> Dashboard</a>
-        <a onclick="goTo('Transfer.html')"><img src="Images/Transfer.png" width="20"> Transfer</a>
+        <a onclick="goTo('Dashboard.php')" ><img src="Images/home.png" alt="" width="20"> Dashboard</a>
+        <a onclick="goTo('Transfer.php')"><img src="Images/Transfer.png" width="20"> Transfer</a>
         <a onclick="goTo('bills.html')"><img src="Images/Bill.png" width="20"> Bills</a>
         <a onclick="goTo('loan.html')"><img src="Images/Loan.png" width="20"> Loan</a>
         <a onclick="openDeposit()"><img src="Images/Safe_In.png" width="20"> Deposit</a>
@@ -376,14 +391,14 @@
 </div>
 
 <div class="cards-row">
-    <a href="Bank Transfer.html" class="bill-card">
+    <a href="Bank_Transfer.php" class="bill-card">
         <div class="bill-card-top">
             <div class="bill-icon"><img src="Images/Bank_Transfer.png" alt=""></div>
             <div class="bill-label">Bank Transfer</div>
         </div>
     </a>
 
-    <a href="Money Transfer.html" class="bill-card">
+    <a href="Money_Transfer.php" class="bill-card">
         <div class="bill-card-top">
             <div class="bill-icon"><img src="Images/Money_Transfer.png" alt=""></div>
             <div class="bill-label">Money Transfer</div>

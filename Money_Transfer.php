@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// Block access if not logged in
+if (!isset($_SESSION['user_account'])) {
+    header("Location: Login.php");
+    exit();
+}
+
+// Prevent browser cache (back button)
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,20 +70,16 @@
         background-color: rgba(11, 48, 55, 0.8);
         padding: 30px;
         border-radius: 12px;
-        text-align: left;
         font-size: 14px;
     }
 
-    /* LABELS */
     .frame label {
         display: block;
-        color: #FFFFFF;
         margin-bottom: 5px;
         font-weight: bold;
     }
 
-    .frame input,
-    .frame select {
+    .frame input {
         width: 100%;
         padding: 12px;
         border: 1px solid #AC8F45;
@@ -79,16 +89,9 @@
         color: #FFFFFF;
         font-size: 14px;
         box-sizing: border-box;
-        appearance: none;
         outline: none;
     }
-    
-    .frame select option {
-    background-color: #0B3037;
-    color: #FFFFFF;
-    }
 
-    /* Confirm Button */
     .confirm-btn {
         width: 100%;
         padding: 12px;
@@ -107,35 +110,37 @@
 </head>
 <body>
 
-<!-- HEADER WITH BUTTONS -->
+<!-- HEADER -->
 <div class="header">
 
-    <a href="Transfer.html" class="header-img-btn left-btn">
-        <img src="Images/Money_Transfer.png" alt="Left Button">
+    <a href="Transfer.php" class="header-img-btn left-btn">
+        <img src="Images/Money_Transfer.png" alt="Back">
     </a>
 
-    <span class="header-title">Bank Transfer</span>
+    <span class="header-title">Money Transfer</span>
 
-    <a href="#" class="header-img-btn right-btn">
-        <img src="Images/Notification.png" alt="Right Button">
-    </a>
+    <span class="header-img-btn right-btn">
+        <img src="Images/Notification.png" alt="Notification">
+    </span>
 
 </div>
 
-<!-- TRANSFER FORM FRAME -->
+<!-- TRANSFER FORM -->
 <div class="frame">
+<form action="PHP/process_money_transfer.php" method="POST">
 
-    <label>Account Number</label>
-    <input type="text" placeholder="Enter Account Number">
+    <label>Recipient Account Number</label>
+    <input type="text" name="to_account" required>
 
-    <label>Account Name</label>
-    <input type="text" placeholder="Enter Account Name">
+    <label>Recipient Account Name</label>
+    <input type="text" name="to_name" required>
 
     <label>Money Amount</label>
-    <input type="number" placeholder="Enter Amount">
+    <input type="number" name="amount" min="1" required>
 
-    <button class="confirm-btn">Confirm</button>
+    <button type="submit" class="confirm-btn">Confirm</button>
 
+</form>
 </div>
 
 </body>
