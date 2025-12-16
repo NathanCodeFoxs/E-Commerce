@@ -329,13 +329,13 @@
     <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
         <a onclick="goTo('Dashboard.php')" ><img src="Images/home.png" alt="" width="20"> Dashboard</a>
         <a onclick="goTo('Transfer.php')"><img src="Images/Transfer.png" width="20"> Transfer</a>
-        <a onclick="goTo('bills.html')"><img src="Images/Bill.png" width="20"> Bills</a>
-        <a onclick="goTo('loan.html')"><img src="Images/Loan.png" width="20"> Loan</a>
+        <a onclick="goTo('bills.php')"><img src="Images/Bill.png" width="20"> Bills</a>
+        <a onclick="goTo('loan.php')"><img src="Images/Loan.png" width="20"> Loan</a>
         <a onclick="openDeposit()"><img src="Images/Safe_In.png" width="20"> Deposit</a>
-        <a onclick="goTo('withdraw.html')"><img src="Images/Safe_Out.png" width="20"> Withdrawal</a>
-        <a onclick="goTo('finance.html')"><img src="Images/Finance.png" width="20"> Finance</a>
-        <a onclick="goTo('settings.html')"><img src="Images/Setting.png" alt="" width="20"> Settings</a>
-        <a onclick="goTo('logout.html')"><img src="Images/Logout.png" alt="" width="20"> Logout</a>
+        <a onclick="goTo('withdraw.php')"><img src="Images/Safe_Out.png" width="20"> Withdrawal</a>
+        <a onclick="goTo('finance.php')"><img src="Images/Finance.png" width="20"> Finance</a>
+        <a onclick="goTo('settings.php')"><img src="Images/Setting.png" alt="" width="20"> Settings</a>
+        <a onclick="goTo('logout.php')"><img src="Images/Logout.png" alt="" width="20"> Logout</a>
     </div>
 </div>
 
