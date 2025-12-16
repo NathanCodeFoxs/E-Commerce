@@ -25,15 +25,6 @@ if ($user_id) {
 <meta charset="UTF-8">
 <title>BBC Dashboard</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap">
-<link rel="stylesheet" href="dashboard.css">
-
-<script>
-window.addEventListener("pageshow", function(event) {
-    if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
-        window.location.href = 'Login.php';
-    }
-});
-</script>
 
 </head>
 <style>
