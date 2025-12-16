@@ -196,6 +196,7 @@
 <body>
 
 <!-- ======[ SIDEBAR ]====== -->
+<div class="header">
 <div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
     <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
         <a onclick="goTo('Dashboard.php')" ><img src="Images/home.png" alt="" width="20"> Dashboard</a>
@@ -213,7 +214,7 @@
 <!-- =====[ NAVBAR ]===== -->
 <div class="nav-head">
     <div class="menu-icon" onclick="openSidebar()"><img src="Images/Sidebar.png" alt="" width="40"></div>
-        <span class="header-title">Transfer</span>
+        <span class="header-title">Loan</span>
         <span class="bell-icon">
             <img src="Images/Notification.png" alt="notification" width="30">
         </span>

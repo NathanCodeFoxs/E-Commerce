@@ -323,7 +323,7 @@
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ======[ SIDEBAR ]====== -->
 <div class="header">
 <div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
     <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
