@@ -1,15 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['user_account'])) {
-    header("Location: Login.php");
-    exit();
-}
-
-// Prevent caching
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Pragma: no-cache");
-header("Expires: 0");
-?>
+<?php require_once __DIR__ . "/PHP/auth.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -279,7 +268,7 @@ a #active {
 
 <!-- =====[ ICON ROW ]===== -->
 <div class="icon-row">
-    <a class="icon-btn" onclick="goTo('transfer.html')">
+    <a class="icon-btn" onclick="goTo('Transfer.php')">
         <img src="Images/Transfer.png"><p>Transfer</p>
     </a>
     <a class="icon-btn" onclick="goTo('bills.html')">

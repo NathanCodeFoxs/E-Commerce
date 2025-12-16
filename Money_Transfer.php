@@ -1,17 +1,5 @@
-<?php
-session_start();
+<?php require_once __DIR__ . "/PHP/auth.php"; ?>
 
-// Block access if not logged in
-if (!isset($_SESSION['user_account'])) {
-    header("Location: Login.php");
-    exit();
-}
-
-// Prevent browser cache (back button)
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Pragma: no-cache");
-header("Expires: 0");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
