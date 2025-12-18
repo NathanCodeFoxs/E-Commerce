@@ -85,9 +85,11 @@
 
     .balance-value {
         color: white;
-        font-size: 64px;
+        font-size: clamp(28px, 6vw, 64px);
         margin-top: 5px;
-        margin-right: 25px;
+        text-align: center;
+        word-break: break-all;
+        overflow: hidden;
     }
 
     .input-wrap {
