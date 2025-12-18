@@ -51,17 +51,18 @@
     .right { right: 30px; }
 
     .top-header h1 {
-        font-size: 50px;
+        font-size: 100px;
         font-weight: 600;
     }
 
     .card {
-        width: 450px;
+        width: 400px;
         background: rgba(0, 0, 0, 0.32);
-        padding: 150px 45px;
-        margin: 90px auto;
+        margin: 60px auto 0;  
+        padding: 100px 25px;
         text-align: center;
         box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        border-radius: 6px;
     }
 
     .input-wrap {

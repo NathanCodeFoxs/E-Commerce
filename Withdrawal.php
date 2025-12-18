@@ -62,38 +62,36 @@
     }
 
     .card {
-        width: 420px;
-        padding: 32px 32px 36px;
-        background: rgba(0, 0, 0, 0.28);
-        border-radius: 18px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-        text-align: left;
+        width: 420px;         
+        margin: 60px auto 0;  
+        padding: 50px 25px;   
+        background: rgba(0, 0, 0, 0.32);
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+        border-radius: 6px;
     }
 
     .balance-box {
-        background: rgba(0, 0, 0, 0.25);
-        border: 1.5px solid #AC8F45;
-        padding: 14px 18px;
-        border-radius: 10px;
-        margin-bottom: 28px;
+        background: #AC8F45;
+        padding: 12px 18px;   
+        border-radius: 16px;
+        margin-bottom: 25px;
+        color: #073c45;
+        text-align: center;
     }
 
     .balance-label {
-        font-size: 13px;
-        letter-spacing: 1px;
-        color: #ffffff;
-        opacity: 0.9;
-        margin-bottom: 6px;
+        color: white;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+        margin-bottom: 4px;
     }
 
     .balance-value {
-        font-size: clamp(22px, 3.5vw, 34px);
-        font-weight: 600;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        color: white;
+        font-size: clamp(24px, 4vw, 32px); 
+        line-height: 1.2;
     }
-
 
     .input-wrap {
         width: 80%;
@@ -130,71 +128,71 @@
     }
 
               /* ========[ SIDEBAR ]======== */
-.sidebar-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 0;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    overflow: hidden;
-    transition: 0.3s ease;
-    z-index: 10;
-}
+    .sidebar-bg {
+        position: fixed;
+        top: 0; left: 0;
+        width: 0;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        overflow: hidden;
+        transition: 0.3s ease;
+        z-index: 10;
+    }
 
-.header{
-    width: 100%;
-    height: 100px;
-    background: #0b2931;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    .header{
+        width: 100%;
+        height: 100px;
+        background: #0b2931;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.sidebar {
-    width: 280px;
-    height: 100%;
-    background: #0b1f29;
-    left: -280px;
-    top: 0;
-    padding-top: 40px;
-    transition: 0.3s ease;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.4);
-}
+    .sidebar {
+        width: 280px;
+        height: 100%;
+        background: #0b1f29;
+        left: -280px;
+        top: 0;
+        padding-top: 40px;
+        transition: 0.3s ease;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.4);
+    }
 
-.sidebar a {
-    display: block;
-    padding: 18px 30px;
-    color: #ac8f45;
-    font-size: 20px;
-    text-decoration: none;
-    cursor: pointer;
-}
+    .sidebar a {
+        display: block;
+        padding: 18px 30px;
+        color: #ac8f45;
+        font-size: 20px;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-.sidebar img{
-    margin-right: 15px;
-    vertical-align: middle;
-}
+    .sidebar img{
+        margin-right: 15px;
+        vertical-align: middle;
+    }
 
-.sidebar a:hover {
-    background: #10303a;
-}
+    .sidebar a:hover {
+        background: #10303a;
+    }
 
-.menu-icon {
-    font-size: 32px;
-    cursor: pointer;
-    color: white;
-    margin-left: 20px;
-}
-.bell-icon {
-    margin-right: 20px;
-}
-.title {
-    font-size: 36px;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-</style>
-</head>
+    .menu-icon {
+        font-size: 32px;
+        cursor: pointer;
+        color: white;
+        margin-left: 20px;
+    }
+    .bell-icon {
+        margin-right: 20px;
+    }
+    .title {
+        font-size: 36px;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    </style>
+    </head>
 
 <body>
 
