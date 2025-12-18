@@ -71,22 +71,27 @@
     }
 
     .balance-box {
-        background: #AC8F45;
-        padding: 12px 14px;        
-        border-radius: 12px;     
-        margin-bottom: 30px;
-        color: #073c45;
+        background: rgba(0, 0, 0, 0.25);
+        border: 1.5px solid #AC8F45;
+        padding: 14px 18px;
+        border-radius: 10px;
+        margin-bottom: 28px;
     }
 
     .balance-label {
-        font-size: 14px;          
-        margin-bottom: 4px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #ffffff;
+        opacity: 0.9;
+        margin-bottom: 6px;
     }
 
     .balance-value {
-        font-size: clamp(24px, 4.5vw, 48px); 
-        text-align: center;
-        line-height: 1.1;
+        font-size: clamp(22px, 3.5vw, 34px);
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
 
