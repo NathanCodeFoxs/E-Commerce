@@ -62,12 +62,12 @@
     }
 
     .card {
-        width: 450px;
-        margin: 90px auto 0;
-        padding: 40px;
-        background: rgba(0, 0, 0, 0.32);
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        width: 420px;
+        padding: 32px 32px 36px;
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        text-align: left;
     }
 
     .balance-box {
