@@ -55,9 +55,10 @@
     .right { right: 30px; }
 
     .top-header h1 {
-        font-size: 50px;
-        font-weight: 600;
+        font-size: 40px;
         font-family: "Georgia", "Times New Roman", serif;
+        font-weight: 600;
+        color: #FFFFFF;
     }
 
     .card {
@@ -122,7 +123,7 @@
         border-radius: 10px;
         font-size: 17px;
         font-weight: bold;
-        color: #073c45;
+        color: #ffffffff;
         cursor: pointer;
     }
 
