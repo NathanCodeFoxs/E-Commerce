@@ -55,8 +55,10 @@
     .right { right: 30px; }
 
     .top-header h1 {
-        font-size: 50px;
+        font-size: 40px;
+        font-family: "Georgia", "Times New Roman", serif;
         font-weight: 600;
+        color: #FFFFFF;
     }
 
     .card {
@@ -210,7 +212,7 @@
 <!-- =====[ NAVBAR ]===== -->
 <div class="nav-head">
     <div class="menu-icon" onclick="openSidebar()"><img src="Images/Sidebar.png" alt="" width="40"></div>
-        <span class="header-title">Withdraw</span>
+        <span class="header-title">Withdrawal</span>
         <span class="bell-icon">
             <img src="Images/Notification.png" alt="notification" width="30">
         </span>
