@@ -62,37 +62,33 @@
     }
 
     .card {
-        width: 350px;
-        margin: 60px auto;
-        background-color: rgba(11, 48, 55, 0.8);
-        padding: 30px;
-        border-radius: 12px;
-        text-align: left;
-        font-size: 14px;
+        width: 450px;
+        margin: 90px auto 0;
+        padding: 40px;
+        background: rgba(0, 0, 0, 0.32);
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.35);
     }
 
     .balance-box {
         background: #AC8F45;
-        padding: 18px 12px;
-        border-radius: 18px;
-        margin-bottom: 40px;
+        padding: 12px 14px;        
+        border-radius: 12px;     
+        margin-bottom: 30px;
         color: #073c45;
     }
 
     .balance-label {
-        color: white;
-        font-size: 20px;
-        letter-spacing: 2px;
+        font-size: 14px;          
+        margin-bottom: 4px;
     }
 
     .balance-value {
-        color: white;
-        font-size: clamp(28px, 6vw, 64px);
-        margin-top: 5px;
+        font-size: clamp(24px, 4.5vw, 48px); 
         text-align: center;
-        word-break: break-all;
-        overflow: hidden;
+        line-height: 1.1;
     }
+
 
     .input-wrap {
         width: 80%;
