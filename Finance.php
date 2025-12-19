@@ -34,6 +34,9 @@
     }
 
         .header-title {
+            font-size: 40px;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-weight: 600;
             color: #FFFFFF;
         }
 

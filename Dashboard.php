@@ -47,8 +47,11 @@ if ($user_id) {
 }
 
 .header-title {
-            color: #FFFFFF;
-        }
+    font-size: 40px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-weight: 600;
+    color: #FFFFFF;
+}
 
 .header-logo{
     height: 80px;

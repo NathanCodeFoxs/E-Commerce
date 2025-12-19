@@ -21,13 +21,11 @@
       color: #f5f5f5;
     }
 
-    .title {
-      position: absolute;
-      top: 26px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 38px;
-      letter-spacing: 2px;
+    .header-title {
+      font-size: 40px;
+      font-family: "Georgia", "Times New Roman", serif;
+      font-weight: 600;
+      color: #FFFFFF;
     }
 
     .page-wrapper {

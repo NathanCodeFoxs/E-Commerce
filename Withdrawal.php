@@ -54,7 +54,7 @@
     .left { left: 30px; }
     .right { right: 30px; }
 
-    .top-header h1 {
+    .header-title {
         font-size: 40px;
         font-family: "Georgia", "Times New Roman", serif;
         font-weight: 600;

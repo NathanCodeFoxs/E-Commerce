@@ -91,10 +91,11 @@
     margin-right: 20px;
 }
 
-  .title {
-    font-size: 36px;
+  .header-title {
+    font-size: 40px;
+    font-family: "Georgia", "Times New Roman", serif;
     font-weight: 600;
-    letter-spacing: 1px;
+    color: #FFFFFF;
   }
 
   main {
