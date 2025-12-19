@@ -226,23 +226,26 @@ a:hover{
             <div class="login-box">
                 <h1>Login</h1>
                 <p class="welcome-text">Welcome to Big Bank Credit!</p>
+                
+                <?php
+                if (isset($_SESSION['login_error'])) {
+                    echo '<p style="color:red;">'. $_SESSION['login_error'] .'</p>';
+                    unset($_SESSION['login_error']); // Clear error after showing
+                }
+                ?>
 
-                <form method="POST" autocomplete="off">
+                <form action="PHP/login_process.php" method="POST" autocomplete="off">
                     <label>Account Number:</label>
                     <input type="text" name="account_number" required autocomplete="off">
 
                     <label>Password:</label>
                     <input type="password" name="password" required autocomplete="off">
 
-                    <button class="login-btn" type="submit">Login</button>
+                <button class="login-btn" type="submit">Login</button>
                 </form>
 
                 <p class="small"><a href="#">Forgot Your Password?</a></p>
-                <p class="small">Don't have an account? <a href="#">Sign up</a></p>
-
-                <?php if($login_error): ?>
-                    <p style="color:red;"><?php echo $login_error; ?></p>
-                <?php endif; ?>
+                <p class="small">Don't have an account? <a href="#">Sign up</a></p>                
             </div>
         </div>
     </div>

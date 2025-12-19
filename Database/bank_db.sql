@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2025 at 05:54 AM
+-- Generation Time: Dec 19, 2025 at 06:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,32 @@ CREATE TABLE `balances` (
 --
 
 INSERT INTO `balances` (`id`, `user_id`, `balance`, `last_updated`) VALUES
-(1, 6, 10000.00, '2025-12-16 03:42:42');
+(1, 6, 9400.00, '2025-12-19 05:10:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `type` enum('INTERNAL','BANK') NOT NULL,
+  `bank_name` varchar(50) DEFAULT NULL,
+  `to_account` varchar(50) DEFAULT NULL,
+  `to_name` varchar(100) DEFAULT NULL,
+  `amount` decimal(10,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `user_id`, `type`, `bank_name`, `to_account`, `to_name`, `amount`, `created_at`) VALUES
+(1, 6, 'BANK', 'BDO', '11111', 'Nathan', 100.00, '2025-12-19 05:10:11'),
+(2, 6, 'INTERNAL', 'BBC', '22222', 'Nat', 200.00, '2025-12-19 05:10:31');
 
 -- --------------------------------------------------------
 
@@ -73,6 +98,13 @@ ALTER TABLE `balances`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -90,6 +122,12 @@ ALTER TABLE `balances`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -104,6 +142,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `balances`
   ADD CONSTRAINT `balances_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

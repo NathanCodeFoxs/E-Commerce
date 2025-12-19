@@ -129,7 +129,7 @@
 <form action="PHP/process_bank_transfer.php" method="POST">
 
     <label for="Bank">Bank:</label>
-    <select name="bank" id="Bank" required>
+    <select name="bank_name" id="Bank" required>
         <option value="BDO">BDO</option>
         <option value="BPI">BPI</option>
         <option value="GCash">GCash</option>

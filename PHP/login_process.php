@@ -12,8 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
-            $_SESSION['user_account'] = $account;
-            $_SESSION['user_name'] = $row['name'];
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['account_number'] = $account;
 
             // Redirect to dashboard (PRG pattern)
             header("Location: ../Dashboard.php");

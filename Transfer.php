@@ -1,4 +1,19 @@
-<?php require_once __DIR__ . "/PHP/auth.php"; ?>
+<?php
+require_once __DIR__ . "/PHP/auth.php";
+require_once __DIR__ . "/PHP/db.php";
+
+$user_id = $_SESSION['user_id'];
+
+$stmt = $conn->prepare("
+SELECT bank_name, to_account, to_name, amount, created_at
+FROM transactions
+WHERE user_id = ?
+ORDER BY created_at DESC
+");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -364,8 +379,16 @@
                 <th>Date</th>
             </tr>
         </thead>
-        <tbody id="history-body">
-            <!-- Dynamic rows OUTPUT-->
+        <tbody>
+        <?php while ($row = $result->fetch_assoc()): ?>
+        <tr>
+            <td><?= htmlspecialchars($row['bank_name']) ?></td>
+            <td><?= htmlspecialchars($row['to_account']) ?></td>
+            <td><?= htmlspecialchars($row['to_name']) ?></td>
+            <td>₱ <?= number_format($row['amount'], 2) ?></td>
+            <td><?= date("m/d/Y", strtotime($row['created_at'])) ?></td>
+        </tr>
+        <?php endwhile; ?>
         </tbody>
     </table>
 </div>
