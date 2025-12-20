@@ -351,7 +351,6 @@ if(isset($_SESSION['payment_success'])) {
         <a onclick="goTo('Dashboard.php')"><img src="Images/home.png" alt="" width="20"> Dashboard</a>
         <a onclick="goTo('Transfer.php')"><img src="Images/Transfer.png" width="20"> Transfer</a>
         <a onclick="goTo('Bills.php')"><img src="Images/Bill.png" width="20"> Bills</a>
-        <a onclick="goTo('Loan.php')"><img src="Images/Loan.png" width="20"> Loan</a>
         <a onclick="goTo('Deposit.php')"><img src="Images/Safe_In.png" width="20"> Deposit</a>
         <a onclick="goTo('Withdrawal.php')"><img src="Images/Safe_Out.png" width="20"> Withdrawal</a>
         <a onclick="goTo('Finance.php')"><img src="Images/Finance.png" width="20"> Finance</a>
@@ -413,7 +412,6 @@ if(isset($_SESSION['payment_success'])) {
         ['name'=>'Water Bill','icon'=>'Images/Water.png','amount'=>150.65],
         ['name'=>'Electricity Bill','icon'=>'Images/Electricity.png','amount'=>1409.28],
         ['name'=>'Internet Bill','icon'=>'Images/Wifi.png','amount'=>6409.28],
-        ['name'=>'Loan Bill','icon'=>'Images/Loan.png','amount'=>2000.00],
     ];
 
     foreach($bills as $bill):
