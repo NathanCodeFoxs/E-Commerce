@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2025 at 07:05 AM
+-- Generation Time: Dec 20, 2025 at 07:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `balances` (
 --
 
 INSERT INTO `balances` (`id`, `user_id`, `balance`, `last_updated`) VALUES
-(1, 6, 9449.35, '2025-12-20 06:03:51');
+(1, 6, 9349.35, '2025-12-20 06:20:30');
 
 -- --------------------------------------------------------
 
