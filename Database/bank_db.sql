@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2025 at 06:43 AM
+-- Generation Time: Dec 20, 2025 at 07:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `balances` (
 --
 
 INSERT INTO `balances` (`id`, `user_id`, `balance`, `last_updated`) VALUES
-(1, 6, 9249.35, '2025-12-20 05:43:16');
+(1, 6, 9449.35, '2025-12-20 06:03:51');
 
 -- --------------------------------------------------------
 
@@ -195,7 +195,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_otp`
 --
 ALTER TABLE `user_otp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
