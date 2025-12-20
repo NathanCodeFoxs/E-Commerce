@@ -1,4 +1,35 @@
-<?php require_once __DIR__ . "/PHP/auth.php"; ?>
+<?php
+require_once __DIR__ . "/PHP/auth.php";
+require_once __DIR__ . "/PHP/db.php";
+
+$user_id = $_SESSION['user_id'];
+
+// Handle POST submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $deposit_amount = isset($_POST['amount']) ? floatval($_POST['amount']) : 0;
+
+    if ($deposit_amount <= 0) {
+        $_SESSION['deposit_error'] = "Enter a valid amount!";
+    } else {
+        $stmt = $conn->prepare("UPDATE balances SET balance = balance + ? WHERE user_id=?");
+        $stmt->bind_param("di", $deposit_amount, $user_id);
+        $stmt->execute();
+        $stmt->close();
+
+        $_SESSION['deposit_success'] = "Successfully deposited ₱" . number_format($deposit_amount, 2);
+    }
+    header("Location: Deposit.php");
+    exit();
+}
+
+// Fetch current balance
+$stmt = $conn->prepare("SELECT balance FROM balances WHERE user_id=?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($balance);
+$stmt->fetch();
+$stmt->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -188,7 +219,7 @@
 
 <body>
 
-<!-- ======[ SIDEBAR ]====== -->
+<!-- ======[ SIDEBAR + NAVBAR ]====== -->
 <div class="header">
 <div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
     <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
@@ -203,28 +234,37 @@
     </div>
 </div>
 
-<!-- =====[ NAVBAR ]===== -->
 <div class="nav-head">
     <div class="menu-icon" onclick="openSidebar()"><img src="Images/Sidebar.png" alt="" width="40"></div>
     <span class="header-title">Deposit</span>
-    <span class="bell-icon">
-        <img src="Images/Notification.png" alt="notification" width="30">
-    </span>
+    <span class="bell-icon"><img src="Images/Notification.png" alt="notification" width="30"></span>
 </div>
 </div>
 
+<!-- ======[ DEPOSIT CARD ]===== -->
 <div class="card">
-    <!-- Gold label on top and centered -->
     <div class="card-label">Deposit Amount</div>
 
-    <div class="input-wrap">
-        <input type="number" placeholder="Enter amount">
-    </div>
+    <?php
+    if (!empty($_SESSION['deposit_error'])) {
+        echo "<p style='color:red; text-align:center;'>".$_SESSION['deposit_error']."</p>";
+        unset($_SESSION['deposit_error']);
+    }
+    if (!empty($_SESSION['deposit_success'])) {
+        echo "<p style='color:green; text-align:center;'>".$_SESSION['deposit_success']."</p>";
+        unset($_SESSION['deposit_success']);
+    }
+    ?>
 
-    <button>Confirm</button>
+    <form method="POST">
+        <div class="input-wrap">
+            <input type="number" name="amount" placeholder="Enter amount" step="0.01" min="0.01" required>
+        </div>
+        <button type="submit">Confirm</button>
+    </form>
+
+    <p style="margin-top:20px; font-weight:bold;">Available Balance: ₱ <?php echo number_format($balance,2); ?></p>
 </div>
-
-
 
 <script src="Dashboard.js"></script>
 </body>
