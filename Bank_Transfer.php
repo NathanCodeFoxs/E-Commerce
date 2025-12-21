@@ -17,15 +17,15 @@
 
     /* HEADER */
     .header {
-        background-color: rgba(11, 48, 55, 0.8);
-        padding: 20px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 34px;
-        font-weight: bold;
+    width: 100%;
+    height: 100px; 
+    background: #0b2931;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     }
+
 
     .header-title {
         font-size: 40px;
@@ -58,7 +58,8 @@
     .frame {
         width: 350px;
         margin: 60px auto;
-        background-color: rgba(11, 48, 55, 0.8);
+        background: rgba(0, 0, 0, 0.32);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.35);
         padding: 30px;
         border-radius: 12px;
         text-align: left;
