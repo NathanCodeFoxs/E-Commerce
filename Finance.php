@@ -1,4 +1,39 @@
-<?php require_once __DIR__ . "/PHP/auth.php"; ?>
+<?php
+require_once __DIR__ . "/PHP/auth.php";
+require_once __DIR__ . "/PHP/db.php";
+
+$user_id = $_SESSION['user_id'];
+
+// Fetch available balance
+$stmt = $conn->prepare("SELECT balance FROM balances WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($balance);
+$stmt->fetch();
+$stmt->close();
+
+// Safety fallback
+$balance = $balance ?? 0;
+
+// Percentage allocation
+$budgeting       = $balance * 0.40;
+$emergencyFund   = $balance * 0.20;
+$savings         = $balance * 0.25;
+$insurance       = $balance * 0.10;
+$taxPlanning     = $balance * 0.05;
+
+// Fix rounding so total is EXACT
+$totalAllocated =
+    $budgeting +
+    $emergencyFund +
+    $savings +
+    $insurance +
+    $taxPlanning;
+
+$roundingFix = $balance - $totalAllocated;
+$taxPlanning += $roundingFix;
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -184,16 +219,29 @@
       <th>Category</th>
       <th>Amount</th>
     </tr>
-    <tr><td>Income</td><td>₱12,000</td></tr>
-    <tr><td>Budgeting</td><td>₱5,000</td></tr>
-    <tr><td>Debt Management</td><td>₱1,500</td></tr>
-    <tr><td>Emergency Fund</td><td>₱1,000</td></tr>
-    <tr><td>Savings</td><td>₱2,000</td></tr>
-    <tr><td>Insurance</td><td>₱500</td></tr>
-    <tr><td>Tax Planning</td><td>₱468</td></tr>
+    <tr>
+      <td>Budgeting (40%)</td>
+      <td>₱ <?= number_format($budgeting, 2) ?></td>
+    </tr>
+    <tr>
+      <td>Emergency Fund (20%)</td>
+      <td>₱ <?= number_format($emergencyFund, 2) ?></td>
+    </tr>
+    <tr>
+      <td>Savings (25%)</td>
+      <td>₱ <?= number_format($savings, 2) ?></td>
+    </tr>
+    <tr>
+      <td>Insurance (10%)</td>
+      <td>₱ <?= number_format($insurance, 2) ?></td>
+    </tr>
+    <tr>
+      <td>Tax Planning (5%)</td>
+      <td>₱ <?= number_format($taxPlanning, 2) ?></td>
+    </tr>
     <tr class="total-row">
       <td>Total:</td>
-      <td class="total-cell">₱15,532.43</td>
+      <td class="total-cell">₱ <?= number_format($balance, 2) ?></td>
     </tr>
   </table>
 </div>
