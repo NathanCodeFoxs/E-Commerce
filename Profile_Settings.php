@@ -117,7 +117,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 42px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 4px;
+            margin-left: 690px;
             letter-spacing: 2px;
         }
 
@@ -288,12 +289,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="menu-icon" onclick="window.location.href='Profile_Info.php'">
         <img src="Images/home.png" width="40">
     </div>
-    <img src="Images/logo.png" class="header-logo">
-    <p class="acro_compa">BBC</p>
+    <h1 class="page-title">PROFILE SETTINGS</h1>
 </div>
 
 <div class="content-wrapper">
-<h1 class="page-title">PROFILE SETTINGS</h1>
+
 
 <div class="settings-card">
 

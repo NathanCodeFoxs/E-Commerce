@@ -90,7 +90,7 @@ $account_number = $account_number ?? "N/A";
             font-size: 42px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 4px;
             letter-spacing: 2px;
         }
 
@@ -168,26 +168,112 @@ $account_number = $account_number ?? "N/A";
                 font-size: 22px;
             }
         }
+
+        /* ========[ SIDEBAR ]======== */
+.sidebar-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar {
+    width: 280px;
+    height: 100%;
+    background: #0b1f29;
+    position: absolute;
+    left: -280px;
+    top: 0;
+    padding-top: 40px;
+    transition: 0.3s ease;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.4);
+}
+
+.sidebar a {
+    display: block;
+    padding: 18px 30px;
+    color: #ac8f45;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar img{
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.sidebar a:hover {
+    background: #10303a;
+}
+.nav-head{
+    width: 100%;
+    height: 80px;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .header{
+    width: 100%;
+    height: 100px;
+    background: #0b2931;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 40px;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.header-logo{
+    height: 80px;
+    margin: 10px 10px;
+}
     </style>
 </head>
 <body>
 
     <!-- =====[ NAVBAR ]===== -->
     <div class="header">
-        <div class="menu-icon" onclick="window.location.href='Profile_Settings.html'">
+        
+        <div class="sidebar-bg" id="sidebarBg" onclick="closeSidebar()">
+    <div class="sidebar" id="sidebar" onclick="event.stopPropagation()">
+        <a onclick="goTo('Dashboard.php')" ><img src="Images/home.png" alt="" width="20"> Dashboard</a>
+        <a onclick="goTo('Transfer.php')"><img src="Images/Transfer.png" width="20"> Transfer</a>
+        <a onclick="goTo('Bills.php')"><img src="Images/Bill.png" width="20"> Bills</a>
+        <a onclick="goTo('Deposit.php')"><img src="Images/Safe_In.png" width="20"> Deposit</a>
+        <a onclick="goTo('Withdrawal.php')"><img src="Images/Safe_Out.png" width="20"> Withdrawal</a>
+        <a onclick="goTo('Finance.php')"><img src="Images/Finance.png" width="20"> Finance</a>
+        <a onclick="goTo('Profile_Info.php')"><img src="Images/Setting.png" alt="" width="20"> Settings</a>
+        <a onclick="goTo('PHP/logout.php')"><img src="Images/Logout.png" alt="" width="20"> Logout</a>
+    </div>
+</div>
+
+<!-- =====[ NAVBAR ]===== -->
+<div class="nav-head">
+    <div class="menu-icon" onclick="openSidebar()"><img src="Images/Sidebar.png" alt="" width="40"></div>
+        <span class="page-title">PROFILE INFO</span>
+        <span class="bell-icon">
+            <div class="menu-icon" onclick="window.location.href='Profile_Settings.php'">
             <img src="Images/Setting.png" alt="" width="40">
         </div>
-        <img src="Images/logo.png" alt="company logo" class="header-logo">
-        <p class="acro_compa">BBC</p>
-        <span>
-            <img src="Images/Notification.png" alt="notification" width="30">
         </span>
     </div>
+</div>
+
 
     <!-- =====[ CONTENT ]===== -->
     <div class="content-wrapper">
-        <h1 class="page-title">PROFILE INFO</h1>
-
         <div class="profile-card">
             <div class="field-group">
                 <div class="field-label">ACCOUNT NAME</div>
@@ -202,4 +288,5 @@ $account_number = $account_number ?? "N/A";
     </div>
 
 </body>
+<script src="Dashboard.js"></script>
 </html>
