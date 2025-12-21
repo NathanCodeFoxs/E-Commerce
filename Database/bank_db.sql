@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2025 at 07:27 AM
+-- Generation Time: Dec 21, 2025 at 07:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -99,15 +99,16 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `account_number` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `phone_number` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `account_number`, `password`, `email`) VALUES
-(6, 'John Doe', '1234567890', '$2y$10$qTYgXjgVxjI/C807PblJEu6nfixxJo/EaVVXWH.htYl.6wLLFipai', 'johndoe@gmail.com');
+INSERT INTO `users` (`id`, `name`, `account_number`, `password`, `email`, `phone_number`) VALUES
+(6, 'John Doe', '1234567890', '$2y$10$JAqg.SWzqINPYMG80.18IOtM7kM3eY1VG5/D0cDqnQlAUZUrUSkTK', 'johndoe@gmail.com', '0987654321');
 
 -- --------------------------------------------------------
 
@@ -123,6 +124,13 @@ CREATE TABLE `user_otp` (
   `is_used` tinyint(1) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_otp`
+--
+
+INSERT INTO `user_otp` (`id`, `user_id`, `otp_code`, `expires_at`, `is_used`, `created_at`) VALUES
+(15, 6, '718414', '2025-12-21 07:35:05', 0, '2025-12-21 06:30:05');
 
 --
 -- Indexes for dumped tables
@@ -195,7 +203,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_otp`
 --
 ALTER TABLE `user_otp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
