@@ -1,23 +1,24 @@
 <?php
 require_once __DIR__ . '/env.php';
 
-// Validate encryption environment variables
-if (!getenv('ENCRYPTION_KEY') || !getenv('ENCRYPTION_IV')) {
-    die('Encryption environment variables are not set.');
+// Validate encryption environment variable
+if (!getenv('ENCRYPTION_KEY')) {
+    die('Encryption environment variable ENCRYPTION_KEY is not set.');
 }
 
-// Define constants
+// Define constant
 define('ENCRYPTION_KEY', hash('sha256', getenv('ENCRYPTION_KEY'), true));
-define('ENCRYPTION_IV_BASE', substr(hash('sha256', getenv('ENCRYPTION_IV')), 0, 16));
 
 /**
  * Encrypt data using AES-256-CBC with a random IV.
  * The IV is prepended to the encrypted data.
  */
+
+// Encryption
 function encryptData($data) {
     if ($data === null || $data === '') return null;
 
-    $iv = random_bytes(16); // 16 bytes = 128-bit IV
+    $iv = random_bytes(16); // 16 bytes IV
     $encrypted = openssl_encrypt(
         (string)$data,
         'AES-256-CBC',
@@ -26,18 +27,19 @@ function encryptData($data) {
         $iv
     );
 
-    // Prepend IV and encode
+    // Prepend IV and encode to base64
     return base64_encode($iv . $encrypted);
 }
 
-/**
- * Decrypt data using AES-256-CBC.
- * Expects the IV to be prepended to the encrypted data.
- */
+// Decryption
 function decryptData($data) {
     if ($data === null || $data === '') return null;
 
-    $raw = base64_decode($data);
+    $raw = base64_decode($data, true); // strict decoding
+    if ($raw === false || strlen($raw) < 16) {
+        return null; // invalid data
+    }
+
     $iv = substr($raw, 0, 16);
     $ciphertext = substr($raw, 16);
 

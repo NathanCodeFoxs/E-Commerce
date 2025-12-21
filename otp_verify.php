@@ -1,18 +1,50 @@
 <?php
-session_start();
-require_once __DIR__ . "/PHP/db.php";
+// Start secure session
+if (session_status() === PHP_SESSION_NONE) {
+    session_start([
+        'cookie_httponly' => true,                 // prevent JS access
+        'cookie_secure' => isset($_SERVER['HTTPS']), // only HTTPS
+        'use_strict_mode' => true,                // reject uninitialized session IDs
+        'cookie_samesite' => 'Lax'                // basic CSRF mitigation
+    ]);
+}
 
-// Check if temp user exists
+// Session timeout: 10 minutes for OTP
+$timeout = 600; // seconds
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > $timeout)) {
+    session_unset();
+    session_destroy();
+    header("Location: Login.php");
+    exit();
+}
+$_SESSION['last_activity'] = time();
+
+// Session fingerprint to bind session to IP + browser
+$ip = $_SERVER['REMOTE_ADDR'] ?? '';
+$ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+if (!isset($_SESSION['fingerprint'])) {
+    $_SESSION['fingerprint'] = hash('sha256', $ip . $ua);
+} else if ($_SESSION['fingerprint'] !== hash('sha256', $ip . $ua)) {
+    session_unset();
+    session_destroy();
+    header("Location: Login.php");
+    exit();
+}
+
+// Require temporary user for OTP
 if (!isset($_SESSION['tmp_user_id'])) {
     header("Location: Login.php");
     exit();
 }
 
+require_once __DIR__ . "/PHP/db.php";
+
 $otp_error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $entered_otp = implode('', array_map('trim', $_POST['otp'] ?? []));
-    
+
     if (strlen($entered_otp) !== 6 || !ctype_digit($entered_otp)) {
         $otp_error = "Invalid OTP format";
     } else {
@@ -34,7 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['user_id'] = $_SESSION['tmp_user_id'];
                 unset($_SESSION['tmp_user_id']);
 
-                // Optional: clean up used OTP
+                // Optional: regenerate session ID to prevent fixation
+                session_regenerate_id(true);
+
+                // Optional: delete used OTP
                 $stmt_del = $conn->prepare("DELETE FROM user_otp WHERE id = ?");
                 $stmt_del->bind_param("i", $otp_row['id']);
                 $stmt_del->execute();
