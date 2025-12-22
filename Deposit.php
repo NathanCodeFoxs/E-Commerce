@@ -177,7 +177,7 @@ button {
 }
 
 .menu-icon { font-size: 32px; cursor: pointer; color: white; margin-left: 20px; }
-.bell-icon { margin-right: 20px; }
+.bell-icon { margin-right: 20px; visibility: hidden;}
 
 </style>
 </head>

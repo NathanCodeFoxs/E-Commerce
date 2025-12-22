@@ -102,6 +102,7 @@ span{
     font-size: 32px;
     color: #ac8f45;
     cursor: pointer;
+    visibility: hidden;
 }
 
 /* ========[ SIDEBAR ]======== */
@@ -218,6 +219,57 @@ a #active {
     transform: scale(1.1);
 }
 
+.logout-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.logout-box {
+    background: #0b2931;
+    color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    width: 360px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.logout-box h2 {
+    margin-bottom: 10px;
+    color: #ac8f45;
+}
+
+.logout-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logout-actions button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-actions button:first-child {
+    background: #ac8f45;
+    color: #000;
+}
+
+.logout-actions button:last-child {
+    background: #444;
+    color: #fff;
+}
+
+
 
 </style>
 <body>
@@ -233,7 +285,7 @@ a #active {
         <a onclick="goTo('Withdrawal.php')"><img src="Images/Safe_Out.png" width="20"> Withdrawal</a>
         <a onclick="goTo('Finance.php')"><img src="Images/Finance.png" width="20"> Finance</a>
         <a onclick="goTo('Profile_Info.php')"><img src="Images/Setting.png" alt="" width="20"> Settings</a>
-        <a onclick="goTo('PHP/logout.php')"><img src="Images/Logout.png" alt="" width="20"> Logout</a>
+        <a onclick="confirmLogout()"><img src="Images/Logout.png" alt="" width="20"> Logout</a>
     </div>
 </div>
 
@@ -295,6 +347,18 @@ function toggleBalance() {
     <a class="icon-btn" onclick="goTo('Finance.php')">
         <img src="Images/Finance.png"><p>Finance</p>
     </a>
+</div>
+
+
+<div id="logoutModal" class="logout-modal">
+    <div class="logout-box">
+        <h2>Logout Confirmation</h2>
+        <p>Are you sure you want to log out?</p>
+        <div class="logout-actions">
+            <button onclick="doLogout()">Logout</button>
+            <button onclick="closeLogout()">Cancel</button>
+        </div>
+    </div>
 </div>
 
 <script src="Dashboard.js"></script>

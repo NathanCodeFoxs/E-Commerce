@@ -211,6 +211,7 @@ $stmt->close();
 
     .bell-icon {
         margin-right: 20px;
+        visibility: hidden;
     }
 
     .title {

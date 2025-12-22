@@ -63,6 +63,7 @@ $bal_stmt->close();
 }
 .bell-icon {
     margin-right: 20px;
+    visibility: hidden;
 }
 
     .header-title {
@@ -132,6 +133,15 @@ $bal_stmt->close();
         max-height: 170px;
         overflow-y: auto;
     }
+
+    .table-scroll thead th {
+        position: sticky;
+        top: 0;
+        background: #0E3A48;
+        color: #AC8F45;
+        z-index: 5;
+    }
+
 
     thead {
         background-color: rgba(11, 48, 55, 0.8);

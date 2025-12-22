@@ -18,4 +18,16 @@ window.addEventListener("pageshow", function(event) {
     if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
         window.location.href = 'Login.php';
     }
-});
+})
+
+function confirmLogout() {
+    document.getElementById("logoutModal").style.display = "flex";
+}
+
+function closeLogout() {
+    document.getElementById("logoutModal").style.display = "none";
+}
+
+function doLogout() {
+    window.location.href = "PHP/logout.php";
+};

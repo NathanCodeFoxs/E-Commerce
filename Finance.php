@@ -137,6 +137,7 @@ $taxPlanning += $roundingFix;
 
     .bell-icon {
       margin-right: 20px;
+      visibility: hidden;
     }
 
     /* Card + Table */

@@ -12,11 +12,19 @@ $phone_number = "0969784312";
 */
 
 // Another example user
+/*
 $name = "John Doe";
 $account_number = "1234567890";
 $password = "mypassword";
 $email = "johndoe@gmail.com";
 $phone_number = "0987654321";
+*/
+
+$name = "Euri";
+$account_number = "052005";
+$password = "asdasdasd";
+$email = "eurimiguel.villanueva@cvsu.edu";
+$phone_number = "09753354503";
 
 
 // Hash password

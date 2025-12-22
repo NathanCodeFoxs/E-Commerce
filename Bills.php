@@ -130,6 +130,7 @@ if(isset($_SESSION['payment_success'])) {
 }
   .bell-icon {
     margin-right: 20px;
+    visibility: hidden;
 }
 
   .header-title {
